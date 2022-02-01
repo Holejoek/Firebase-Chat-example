@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		350317C927A7F05300C6AADB /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 350317C827A7F05300C6AADB /* ChatViewController.swift */; };
+		350317CB27A80AE200C6AADB /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 350317CA27A80AE200C6AADB /* StorageManager.swift */; };
 		352A4146279EC02200C25241 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352A4145279EC02200C25241 /* AppDelegate.swift */; };
 		352A4148279EC02200C25241 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352A4147279EC02200C25241 /* SceneDelegate.swift */; };
 		352A414A279EC02200C25241 /* ConversationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352A4149279EC02200C25241 /* ConversationsViewController.swift */; };
@@ -26,6 +28,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		350317C827A7F05300C6AADB /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
+		350317CA27A80AE200C6AADB /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 		352A4142279EC02200C25241 /* FirebaseChatExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FirebaseChatExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		352A4145279EC02200C25241 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		352A4147279EC02200C25241 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -96,6 +100,7 @@
 			isa = PBXGroup;
 			children = (
 				352A4149279EC02200C25241 /* ConversationsViewController.swift */,
+				350317C827A7F05300C6AADB /* ChatViewController.swift */,
 				352A416C279EC55B00C25241 /* Login */,
 				352A4164279EC46F00C25241 /* PhotoViewerViewController.swift */,
 				352A4166279EC47B00C25241 /* VideoPlayerViewController.swift */,
@@ -134,6 +139,7 @@
 				352A4147279EC02200C25241 /* SceneDelegate.swift */,
 				352A416D279EC8D200C25241 /* Extensions.swift */,
 				357F40FD279F333B00284919 /* DatabaseManager.swift */,
+				350317CA27A80AE200C6AADB /* StorageManager.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -300,7 +306,9 @@
 				352A4148279EC02200C25241 /* SceneDelegate.swift in Sources */,
 				352A416B279EC4B000C25241 /* ProfileViewController.swift in Sources */,
 				352A4165279EC46F00C25241 /* PhotoViewerViewController.swift in Sources */,
+				350317C927A7F05300C6AADB /* ChatViewController.swift in Sources */,
 				352A4169279EC49C00C25241 /* NewCoversationViewController.swift in Sources */,
+				350317CB27A80AE200C6AADB /* StorageManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

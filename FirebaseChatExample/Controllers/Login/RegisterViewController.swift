@@ -7,8 +7,11 @@
 
 import UIKit
 import FirebaseAuth
+import JGProgressHUD
 
 class RegisterViewController: UIViewController {
+    
+    private let spinner = JGProgressHUD(style: .dark)
     
     private let scrollView: UIScrollView = {
         let scrollView = UIScrollView()
@@ -186,6 +189,8 @@ class RegisterViewController: UIViewController {
               }
         //MARK: - Create User Firebase
         
+        spinner.show(in: view)
+        
         DatabaseManager.shared.userExists(with: email) { [weak self] exists in
             guard let strongSelf = self else {
                 return
@@ -194,6 +199,9 @@ class RegisterViewController: UIViewController {
                 // user allready exist
                 strongSelf.alertUserLoginError(message: "User with that email already exists")
                 return
+            }
+            DispatchQueue.main.async {
+                strongSelf.spinner.dismiss()
             }
             
             
@@ -204,10 +212,28 @@ class RegisterViewController: UIViewController {
                     return
                 }
                 
-                
-                DatabaseManager.shared.insertUser(with: ChatAppUser(firstName: firstName,
-                                                                    lastName: lastName,
-                                                                    emailAdress: email))
+                let chatUser = ChatAppUser(firstName: firstName,
+                                          lastName: lastName,
+                                          emailAdress: email)
+                DatabaseManager.shared.insertUser(with: chatUser) { succes in
+                    if succes {
+                        //upload message
+                        guard let image = strongSelf.imageView.image, let data = image.pngData() else {
+                            return
+                        }
+                        let fileName = chatUser.profilePictureFileName
+                        StorageManager.shared.uploadProfilePicture(with: data,
+                                                                   fileName: fileName) { result in
+                            switch result {
+                            case .success(let downloadUrl):
+                                UserDefaults.standard.set(downloadUrl, forKey: "profile_picture_url")
+                                print(downloadUrl)
+                            case .failure(let error):
+                                print("Storage manager error: \(error)")
+                            }
+                        }
+                    }
+                }
                 strongSelf.navigationController?.dismiss(animated: true, completion: nil)
             }
             
@@ -234,16 +260,6 @@ class RegisterViewController: UIViewController {
         vc.title = "Create Account"
         navigationController?.pushViewController(vc, animated: true)
     }
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
     
 }
 
