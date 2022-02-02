@@ -10,6 +10,8 @@ import JGProgressHUD
 
 class NewCoversationViewController: UIViewController {
     
+    public var completion: (([String: String]) -> Void)?
+    
     private let spiner = JGProgressHUD(style: .dark)
     
     private var users = [[String: String]]()
@@ -20,11 +22,11 @@ class NewCoversationViewController: UIViewController {
         searchBar.placeholder = "Search For Users..."
         return searchBar
     }()
-
+    
     private let tableView: UITableView = {
         let table = UITableView()
         table.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
-   return table
+        return table
     }()
     
     private let noResultLabel: UILabel = {
@@ -67,7 +69,7 @@ class NewCoversationViewController: UIViewController {
     @objc private func dismissSelf() {
         dismiss(animated: true)
     }
-
+    
     
 }
 
@@ -84,6 +86,13 @@ extension NewCoversationViewController: UITableViewDelegate, UITableViewDataSour
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        //start conversation
+        let targetUserData = results[indexPath.row]
+        
+        dismiss(animated: true) { [weak self] in
+            self?.completion?(targetUserData)
+        }
+        
     }
     
     
@@ -116,7 +125,7 @@ extension NewCoversationViewController: UISearchBarDelegate {
             filterUsers(with: query)
         }
         else {
-        // if it not: fetch then filter
+            // if it not: fetch then filter
             DatabaseManager.shared.getAllUsers { [weak self] result in
                 switch result {
                 case .success(let userCollection):
@@ -128,7 +137,7 @@ extension NewCoversationViewController: UISearchBarDelegate {
                 }
             }
         }
-
+        
         
         //update the UI
     }
