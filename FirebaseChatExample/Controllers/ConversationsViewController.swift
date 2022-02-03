@@ -81,7 +81,6 @@ class ConversationsViewController: UIViewController {
         let vc = NewCoversationViewController()
         vc.completion = {  [weak self] result in
             self?.createNewConversation(result: result)
-            print(result)
         }
         let navVc = UINavigationController(rootViewController: vc)
         present(navVc, animated: true, completion: nil)
@@ -144,6 +143,7 @@ extension ConversationsViewController: UITableViewDelegate, UITableViewDataSourc
         tableView.deselectRow(at: indexPath, animated: true)
         let model = conversations[indexPath.row]
         let vc = ChatViewController(with: model.otherUserEmail, id: model.id)
+        vc.isNewConversation = false
         vc.title = model.name
         vc.navigationItem.largeTitleDisplayMode = .never
         navigationController?.pushViewController(vc, animated: true)
