@@ -23,8 +23,10 @@
 		352A416B279EC4B000C25241 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352A416A279EC4B000C25241 /* ProfileViewController.swift */; };
 		352A416E279EC8D200C25241 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352A416D279EC8D200C25241 /* Extensions.swift */; };
 		357C64C627AA6D0A00BED850 /* ConversationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 357C64C527AA6D0A00BED850 /* ConversationTableViewCell.swift */; };
+		357C64C827AC72AC00BED850 /* NewConversationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 357C64C727AC72AC00BED850 /* NewConversationCell.swift */; };
 		357F40FC279F1E6D00284919 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 357F40FB279F1E6D00284919 /* GoogleService-Info.plist */; };
 		357F40FE279F333B00284919 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 357F40FD279F333B00284919 /* DatabaseManager.swift */; };
+		3598476427B15EFF00C1749A /* LocationPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3598476327B15EFF00C1749A /* LocationPickerViewController.swift */; };
 		63BAD1E5787C1C45488D92DB /* Pods_FirebaseChatExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81EF9FC8824C400B43CE2F20 /* Pods_FirebaseChatExample.framework */; };
 /* End PBXBuildFile section */
 
@@ -47,8 +49,10 @@
 		352A416A279EC4B000C25241 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		352A416D279EC8D200C25241 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		357C64C527AA6D0A00BED850 /* ConversationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationTableViewCell.swift; sourceTree = "<group>"; };
+		357C64C727AC72AC00BED850 /* NewConversationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewConversationCell.swift; sourceTree = "<group>"; };
 		357F40FB279F1E6D00284919 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		357F40FD279F333B00284919 /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
+		3598476327B15EFF00C1749A /* LocationPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationPickerViewController.swift; sourceTree = "<group>"; };
 		81EF9FC8824C400B43CE2F20 /* Pods_FirebaseChatExample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FirebaseChatExample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9C91C7BFAAD55CEB2679247 /* Pods-FirebaseChatExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FirebaseChatExample.release.xcconfig"; path = "Target Support Files/Pods-FirebaseChatExample/Pods-FirebaseChatExample.release.xcconfig"; sourceTree = "<group>"; };
 		D60EEAAE223820ED41B97B6C /* Pods-FirebaseChatExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FirebaseChatExample.debug.xcconfig"; path = "Target Support Files/Pods-FirebaseChatExample/Pods-FirebaseChatExample.debug.xcconfig"; sourceTree = "<group>"; };
@@ -108,6 +112,7 @@
 				352A4166279EC47B00C25241 /* VideoPlayerViewController.swift */,
 				352A4168279EC49C00C25241 /* NewCoversationViewController.swift */,
 				352A416A279EC4B000C25241 /* ProfileViewController.swift */,
+				3598476327B15EFF00C1749A /* LocationPickerViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -117,6 +122,7 @@
 			children = (
 				352A415F279EC2C400C25241 /* Storyboards */,
 				357C64C527AA6D0A00BED850 /* ConversationTableViewCell.swift */,
+				357C64C727AC72AC00BED850 /* NewConversationCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -195,6 +201,7 @@
 				352A413F279EC02200C25241 /* Frameworks */,
 				352A4140279EC02200C25241 /* Resources */,
 				727A6A66FFDAD81FF42BAF2F /* [CP] Embed Pods Frameworks */,
+				35E63E4327B2983E00B82B2E /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -275,6 +282,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		35E63E4327B2983E00B82B2E /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/FirebaseCrashlytics/run\"\n";
+		};
 		727A6A66FFDAD81FF42BAF2F /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -300,6 +324,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				352A4161279EC42B00C25241 /* LoginViewController.swift in Sources */,
+				357C64C827AC72AC00BED850 /* NewConversationCell.swift in Sources */,
 				357F40FE279F333B00284919 /* DatabaseManager.swift in Sources */,
 				352A4163279EC44400C25241 /* RegisterViewController.swift in Sources */,
 				352A414A279EC02200C25241 /* ConversationsViewController.swift in Sources */,
@@ -313,6 +338,7 @@
 				350317C927A7F05300C6AADB /* ChatViewController.swift in Sources */,
 				352A4169279EC49C00C25241 /* NewCoversationViewController.swift in Sources */,
 				350317CB27A80AE200C6AADB /* StorageManager.swift in Sources */,
+				3598476427B15EFF00C1749A /* LocationPickerViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -372,7 +398,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
