@@ -11,6 +11,7 @@ import AVFoundation
 import MessageKit
 import CoreLocation
 
+///Manager object to read and write data to
 final class DatabaseManager {
     
     static let shared = DatabaseManager()
@@ -38,7 +39,10 @@ extension DatabaseManager {
 //MARK: - AccountManager
 
 extension DatabaseManager {
-    
+    /// Checks if user exists for given email
+    /// Parameters
+    /// - 'email':              Target email to be checked
+    /// - 'completion':     Async closure to return with result
     public func userExists(with email: String, completion: @escaping ((Bool)-> Void)) {
         
         let safeEmail = DatabaseManager.safeEmail(emailAdress: email)

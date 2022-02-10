@@ -11,17 +11,8 @@ import FBSDKLoginKit
 import GoogleSignIn
 import SDWebImage
 
-enum ProfileViewModelType {
-    case info, logout
-}
 
-struct ProfileViewModel {
-    let viewModelType: ProfileViewModelType
-    let title: String
-    let handler: (() -> Void)?
-}
-
-class ProfileViewController: UIViewController {
+final class ProfileViewController: UIViewController {
     
     @IBOutlet var tableView: UITableView!
     
@@ -136,7 +127,7 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
-class ProfileTableViewCell: UITableViewCell {
+final class ProfileTableViewCell: UITableViewCell {
     static let identifier = "ProfileTableViewCell"
     
     public func setUp(with viewModel: ProfileViewModel) {

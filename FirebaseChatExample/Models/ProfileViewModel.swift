@@ -1,0 +1,18 @@
+//
+//  ProfileViewModel.swift
+//  FirebaseChatExample
+//
+//  Created by Иван Тиминский on 09.02.2022.
+//
+
+import Foundation
+
+enum ProfileViewModelType {
+    case info, logout
+}
+
+struct ProfileViewModel {
+    let viewModelType: ProfileViewModelType
+    let title: String
+    let handler: (() -> Void)?
+}
